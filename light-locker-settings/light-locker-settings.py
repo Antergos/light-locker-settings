@@ -16,6 +16,7 @@
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gettext
+
 gettext.textdomain('light-locker-settings')
 
 from gettext import gettext as _
@@ -29,6 +30,7 @@ import subprocess
 from gi.repository import Gtk, GLib, Gio
 
 import psutil
+
 old_psutil_format = isinstance(psutil.Process.username, property)
 
 import light_locker_xfsync
@@ -37,22 +39,21 @@ import light_locker_xfsync
 
 username = GLib.get_user_name()
 
-
 screensaver_managers = {
     'xfce4-power-manager': (_("Xfce Power Manager"), "xfce4-power-manager -c")
 }
 
 
 class LightLockerSettings:
-    '''Light Locker Settings application class.'''
+    """Light Locker Settings application class."""
 
     def __init__(self):
-        '''Initialize the Light Locker Settings application.'''
+        """Initialize the Light Locker Settings application."""
         self.light_locker_keyfile = None
         self.screensaver_keyfile = None
 
         self.builder = Gtk.Builder()
-        self.builder.set_translation_domain ('light-locker-settings')
+        self.builder.set_translation_domain('light-locker-settings')
 
         script_dir = os.path.dirname(os.path.abspath(__file__))
         glade_file = os.path.join(script_dir, "light-locker-settings.glade")
@@ -92,6 +93,7 @@ class LightLockerSettings:
             self.lock_delay.add_mark(i * 10, 3, None)
 
         self.screensaver_managed = False
+        self.gsettings = None
 
         self.gsettings_init()
 
@@ -109,9 +111,9 @@ class LightLockerSettings:
 
         self.window.show()
 
-# Application Callbacks
+    # Application Callbacks
     def screenblank_value_changed_cb(self, gparam):
-        '''Sync screenblank and screenoff settings when values are modified.'''
+        """Sync screenblank and screenoff settings when values are modified."""
         self.apply.set_sensitive(True)
 
         blank_timeout = int(self.screenblank_timeout.get_value())
@@ -122,7 +124,7 @@ class LightLockerSettings:
             self.screenoff_timeout.set_value(blank_timeout)
 
     def screenoff_value_changed_cb(self, gparam):
-        '''Sync screenblank and screenoff settings when values are modified.'''
+        """Sync screenblank and screenoff settings when values are modified."""
         self.apply.set_sensitive(True)
 
         blank_timeout = int(self.screenblank_timeout.get_value())
@@ -133,8 +135,8 @@ class LightLockerSettings:
             self.screenblank_timeout.set_value(off_timeout)
 
     def use_lightlocker_cb(self, switch, gparam):
-        '''Update the displayed lock controls when light-locker is enabled or
-        disabled.'''
+        """Update the displayed lock controls when light-locker is enabled or
+        disabled."""
         ''' if on then allow for the timeout to be set '''
         self.locksettings_changed = True
         self.apply.set_sensitive(True)
@@ -149,8 +151,8 @@ class LightLockerSettings:
                 self.lock_delay.set_sensitive(True)
 
     def on_session_lock_combo_changed(self, widget):
-        '''Update the displayed screen blanking controls when locking is
-        enabled or disabled.'''
+        """Update the displayed screen blanking controls when locking is
+        enabled or disabled."""
         self.locksettings_changed = True
         self.apply.set_sensitive(True)
 
@@ -162,54 +164,54 @@ class LightLockerSettings:
         self.lock_delay.set_sensitive(active != 2)
 
     def lock_delay_value_changed_cb(self, gparam):
-        '''Enable saving of lock setting when the delay has been modified.'''
+        """Enable saving of lock setting when the delay has been modified."""
         self.locksettings_changed = True
         self.apply.set_sensitive(True)
 
     def lock_on_suspend_cb(self, widget, gparam):
-        '''Enable saving when locking on suspend is changed.'''
+        """Enable saving when locking on suspend is changed."""
         self.locksettings_changed = True
         self.apply.set_sensitive(True)
 
     def apply_cb(self, button, data=None):
-        '''Apply changes and update the relevant setting files.'''
+        """Apply changes and update the relevant setting files."""
         self.apply_settings()
         self.apply.set_sensitive(False)
 
-    def on_window_destroy(self, *args):
-        '''Exit the application when the window is closed.'''
+    @staticmethod
+    def on_window_destroy(*args):
+        """Exit the application when the window is closed."""
         Gtk.main_quit()
 
-    def on_close_clicked(self, *args):
-        '''Exit the application when the window is closed.'''
+    @staticmethod
+    def on_close_clicked(*args):
+        """Exit the application when the window is closed."""
         Gtk.main_quit()
 
-# Process Management
-    def get_process_username(self, process):
+    # Process Management
+    @staticmethod
+    def get_process_username(process):
         """Return the username of the process owner."""
         p_user = None
 
         try:
             if old_psutil_format:
                 p_user = process.username
-            else:
-                p_user = process.username()
-        except:
-            pass
+        except Exception:
+            p_user = process.username()
 
         return p_user
 
-    def get_process_name(self, process):
+    @staticmethod
+    def get_process_name(process):
         """Return the name of the running process."""
         p_name = None
 
         try:
             if old_psutil_format:
                 p_name = os.path.basename(process.exe)
-            else:
-                p_name = os.path.basename(process.exe())
-        except:
-            pass
+        except Exception:
+            p_name = os.path.basename(process.exe())
 
         return p_name
 
@@ -238,11 +240,12 @@ class LightLockerSettings:
                     # When found, end the light-locker process.
                     if self.get_process_name(p) == 'light-locker':
                         p.terminate()
-            except:
+            except Exception:
                 pass
 
-    def run_command(self, cmd, check_output=False):
-        '''Run a shell command, return its output.'''
+    @staticmethod
+    def run_command(cmd, check_output=False):
+        """Run a shell command, return its output."""
         if len(cmd) == 0:
             return None
         if check_output:
@@ -257,11 +260,10 @@ class LightLockerSettings:
     def run_command_cb(self, widget, cmd):
         self.run_command(cmd, False)
 
-# Light Locker 1.5.1
+    # Light Locker 1.5.1
     def gsettings_init(self):
-        self.gsettings = None
         schema_source = Gio.SettingsSchemaSource.get_default()
-        if (schema_source.lookup('apps.light-locker', False)):
+        if schema_source.lookup('apps.light-locker', True):
             self.gsettings = Gio.Settings.new('apps.light-locker')
 
     def gsettings_available(self):
@@ -300,62 +302,70 @@ class LightLockerSettings:
     def gsettings_set_lock_on_suspend(self, enable):
         self.gsettings.set_boolean("lock-on-suspend", enable)
 
-# Key Files
+    # Key Files
     def ll_keyfile_get_settings(self):
         # Defaults
-        settings = {
-            'light-locker-enabled': False,
-            'lock-after-screensaver': False,
-            'late-locking': False,
-            'lock-on-suspend': False,
-            'lock-time': 10
-        }
+        settings = {}
 
         keyfile = self.get_light_locker_autostart()
         if self.get_light_locker_enabled():
             settings['light-locker-enabled'] = True
+        else:
+            settings['light-locker-enabled'] = False
 
-            ll_exec = keyfile.get_value("Desktop Entry", "Exec");
-            value = ll_exec.replace("=", " ")
-            splitArgs = shlex.split(value)
+        ll_exec = keyfile.get_value("Desktop Entry", "Exec")
+        value = ll_exec.replace("=", " ")
+        splitargs = shlex.split(value)
 
-            parser = argparse.ArgumentParser(
-                description='Light Locker Settings')
-            parser.add_argument("--lock-after-screensaver")
-            parser.add_argument("--late-locking", action='store_true')
-            parser.add_argument("--lock-on-suspend", action='store_true')
-            (args, others) = parser.parse_known_args(splitArgs)
+        parser = argparse.ArgumentParser(
+            description='Light Locker Settings')
+        parser.add_argument("--lock-after-screensaver")
+        parser.add_argument("--late-locking", action='store_true')
+        parser.add_argument("--lock-on-suspend", action='store_true')
+        (args, others) = parser.parse_known_args(splitargs)
 
-            # Lock after screensaver
-            if args.lock_after_screensaver:
-                if int(args.lock_after_screensaver) != 0:
-                    settings['lock-after-screensaver'] = True
-                    settings['lock-time'] = self.light_locker_time_down_scaler(
-                        int(args.lock_after_screensaver))
+        # Lock after screensaver
+        if args.lock_after_screensaver:
+            if int(args.lock_after_screensaver) != 0:
+                settings['lock-after-screensaver'] = True
+                settings['lock-time'] = self.light_locker_time_down_scaler(
+                    int(args.lock_after_screensaver))
+            else:
+                settings['lock-after-screensaver'] = False
+                settings['lock-time'] = 0
 
-            # Late Locking
-            if args.late_locking:
-                settings['late-locking'] = True
+        # Late Locking
+        if args.late_locking:
+            settings['late-locking'] = True
+        else:
+            settings['late-locking'] = False
 
-            # Lock on Suspend
-            if args.lock_on_suspend:
-                settings['lock-on-suspend'] = True
+        # Lock on Suspend
+        if args.lock_on_suspend:
+            settings['lock-on-suspend'] = True
+        else:
+            settings['lock-on-suspend'] = False
 
         return settings
 
-    def get_autostart(self, filename, defaults={}):
+    @staticmethod
+    def get_autostart(filename, defaults=None):
+        if not defaults:
+            defaults = {}
         autostart = os.path.join(GLib.get_user_config_dir(), 'autostart')
         if not os.path.exists(autostart):
             os.makedirs(autostart)
         keyfile = GLib.KeyFile.new()
 
-        dirs = []
-        dirs.append (autostart)
+        dirs = [autostart]
         for directory in (GLib.get_system_config_dirs()):
-            dirs.append (os.path.join(directory, 'autostart'))
+            dirs.append(os.path.join(directory, 'autostart'))
 
-        keyfile.load_from_dirs(filename, dirs,
-                               GLib.KeyFileFlags.KEEP_TRANSLATIONS)
+        try:
+            keyfile.load_from_dirs(filename, dirs,
+                                   GLib.KeyFileFlags.KEEP_TRANSLATIONS)
+        except GLib.Error:
+            pass
 
         for key in defaults.keys():
             try:
@@ -412,7 +422,7 @@ class LightLockerSettings:
         autostart = self.get_screensaver_autostart()
         autostart.save_to_file(filename)
 
-# Settings Parsing
+    # Settings Parsing
     def use_screensaver_manager(self, name, command):
         """Replace the Screensaver settings with a different application."""
         self.screensaver_managed = True
@@ -501,7 +511,7 @@ class LightLockerSettings:
         return "light-locker" in ll_exec
 
     def get_screen_blank_timeout(self):
-        ''' read in the X11 screensaver settings from bash '''
+        """ read in the X11 screensaver settings from bash """
         # Defaults
         screen_blank = 10
         screen_off = 15
@@ -528,9 +538,10 @@ class LightLockerSettings:
         # Return the current timeout settings
         return screen_blank, screen_off
 
-# Label Formatters
-    def screensaver_label_formatter(self, screenblank_timeout, max_value):
-        '''Convert timeout values to a more friendly format.'''
+    # Label Formatters
+    @staticmethod
+    def screensaver_label_formatter(screenblank_timeout, max_value):
+        """Convert timeout values to a more friendly format."""
         value = int(screenblank_timeout.get_value())
         if value == 0:
             return _("Never")
@@ -538,7 +549,7 @@ class LightLockerSettings:
             return ngettext("%d minute", "%d minutes", value) % (value,)
 
     def light_locker_label_formatter(self, light_locker_slider, max_value):
-        '''Convert timeout values to a more friendly format.'''
+        """Convert timeout values to a more friendly format."""
         value = int(light_locker_slider.get_value())
         if value == 0:
             formatted_string = _("Never")
@@ -547,32 +558,37 @@ class LightLockerSettings:
             formatted_string = self.secs_to_readable(value)
         return formatted_string
 
-    def secs_to_readable(self, seconds):
-        '''Convert seconds to a more friendly format.'''
+    @staticmethod
+    def secs_to_readable(seconds):
+        """Convert seconds to a more friendly format."""
         if seconds >= 60:
             minutes = seconds / 60
             return ngettext("%d minute", "%d minutes", minutes) % (minutes,)
         else:
             return ngettext("%d second", "%d seconds", seconds) % (seconds,)
 
-# Time Scalers
-    def light_locker_time_up_scaler(self, time):
-        '''Scale times up.'''
+            # Time Scalers
+
+    @staticmethod
+    def light_locker_time_up_scaler(time):
+        """Scale times up."""
         if time > 60:
             time = (time - 60) * 60
         return time
 
-    def light_locker_time_down_scaler(self, time):
-        '''Scale times down.'''
+    @staticmethod
+    def light_locker_time_down_scaler(time):
+        """Scale times down."""
         if time > 60:
             time = time / 60 + 60
         return time
 
-# Settings Writing
+    # Settings Writing
     def get_updated_settings(self):
         """Return a dictionary with the updated settings from the GUI."""
         # Get the lock-after-screensaver timeout.
         session_lock = self.session_lock_combo.get_active()
+        late_locking = None
         if session_lock == 2:  # never lock with screensaver
             late_locking = False
             lock_delay = 0
@@ -629,7 +645,7 @@ class LightLockerSettings:
             self.apply_screen_blank_settings(settings)
 
     def apply_light_locker_settings(self, settings):
-        '''Apply the light-locker settings'''
+        """Apply the light-locker settings"""
         lock_enabled = settings['lock-enabled']
         late_locking = settings['late-locking']
         lock_on_suspend = settings['lock-on-suspend']
@@ -658,7 +674,7 @@ class LightLockerSettings:
             lock_on_suspend = "--no-lock-on-suspend"
 
         lock_after_screensaver = "--lock-after-screensaver=%i" % \
-            lock_after_screensaver
+                                 lock_after_screensaver
 
         # Build the light-locker command.
         light_locker_exec = ""
@@ -676,7 +692,7 @@ class LightLockerSettings:
         self.run_command(light_locker_exec)
 
     def apply_screen_blank_settings(self, settings):
-        '''Apply the screen blank settings.'''
+        """Apply the screen blank settings."""
         screenblank_timeout = settings['screen-blank-timeout']
         screenoff_timeout = settings['screen-off-timeout']
 

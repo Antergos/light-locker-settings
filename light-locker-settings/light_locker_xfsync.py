@@ -67,7 +67,7 @@ def xfconf_set_property(channel, prop, value):
     subprocess.call(cmd.split())
 
 
-class XfceSessionSync():
+class XfceSessionSync:
     """
     Class to set/get xfce4-session lock settings.
     """
@@ -86,7 +86,8 @@ class XfceSessionSync():
             if key not in list(current_settings.keys()):
                 xfconf_init_property(channel, key, type(value), value)
 
-    def _get_xfce4_session_settings(self):
+    @staticmethod
+    def _get_xfce4_session_settings():
         """Return a dictionary of the xfce4-session settings."""
         return xfconf_list_properties('xfce4-session')
 
@@ -106,12 +107,12 @@ class XfceSessionSync():
         self.settings['/shutdown/LockScreen'] = value
 
 
-class XfpmSync():
+class XfpmSync:
     """
     Class to set/get xserver dpms timings via xfpm, thus keeping xfpm in sync.
     """
     def __init__(self):
-        '''Following settings should concur with xfpm defaults'''
+        """Following settings should concur with xfpm defaults"""
         self.settings = {'/xfce4-power-manager/lock-screen-suspend-hibernate':
                          False,
                          '/xfce4-power-manager/logind-handle-lid-switch': True
@@ -130,7 +131,8 @@ class XfpmSync():
             if key not in list(current_settings.keys()):
                 xfconf_init_property(channel, key, type(value), value)
 
-    def _get_xfpm_settings(self):
+    @staticmethod
+    def _get_xfpm_settings():
         """Returns xfpm xfconf settings as string"""
         return xfconf_list_properties('xfce4-power-manager')
 
