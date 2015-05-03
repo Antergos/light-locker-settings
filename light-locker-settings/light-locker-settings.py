@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   Light Locker Settings - simple configuration tool for light-locker
-#   Copyright (C) 2014 Thomas Molloy <beetyrootey@gmail.com>
+#   Copyright © 2015 Antergos Developers <dev@antergos.com>
+#   Copyright © 2014-2015 Thomas Molloy <beetyrootey@gmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
