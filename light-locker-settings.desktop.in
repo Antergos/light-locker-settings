@@ -1,0 +1,10 @@
+[Desktop Entry]
+_Name=Light Locker Settings
+_Comment=Configure locking your session
+Exec=/usr/bin/light-locker-settings
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=XFCE;GNOME;GTK;Settings;X-GNOME-Settings-Panel;X-GNOME-PersonalSettings;DesktopSettings;X-XFCE;
+Keywords=Configuration;Screensaver;User;
+Icon=preferences-desktop-screensaver

@@ -1,0 +1,132 @@
+# Czech translation for light-locker-settings
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the light-locker-settings package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: light-locker-settings\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-13 22:01-0500\n"
+"PO-Revision-Date: 2014-09-05 09:11+0000\n"
+"Last-Translator: Petr Šimáček <petr.simacek@gmail.com>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2015-01-15 06:09+0000\n"
+"X-Generator: Launchpad (build 17303)\n"
+
+#: ../light-locker-settings.desktop.in.h:1
+#: ../light-locker-settings/light-locker-settings.py:63
+msgid "Light Locker Settings"
+msgstr "Nastavení Light Locker"
+
+#: ../light-locker-settings.desktop.in.h:2
+msgid "Configure locking your session"
+msgstr "Nastavit uzamčení relace"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:1
+msgid ""
+"<b><big>Light Locker Settings</big></b>\n"
+"Configure locking your session"
+msgstr ""
+"<b><big>Nastavení Light Locker</big></b>\n"
+"Nastavit uzamčení relace"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:3
+msgid "Apply"
+msgstr "Použít"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:4
+msgid "Open"
+msgstr "Otevřít"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:5
+msgid "Blank screen after"
+msgstr "Prázdná obrazovka po"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:6
+msgid "Switch off display after <i>(depends on hardware support)</i>"
+msgstr "Vypnout obrazovku po <i>(záleží na podpoře hardwaru)</i>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:7
+msgid "<b>Screensaver</b>"
+msgstr "<b>Šetřič obrazovky</b>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:8
+msgid "Enable light-locker"
+msgstr "Povolit light-locker"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:9
+msgid "Automatically lock the session"
+msgstr "Automaticky zamykat relaci"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:10
+msgid "Delay locking after screensaver for"
+msgstr "Zpoždění zamykání po zapnutí spořiče obrazovky"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:11
+msgid "Lock on suspend"
+msgstr "Zamknout při uspání"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:12
+msgid "<b>Locking</b>"
+msgstr "<b>Zamykání</b>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:13
+msgid "When the screensaver is activated"
+msgstr "Když je spořič obrazovky zapnutý"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:14
+msgid "When the screensaver is deactivated"
+msgstr "Když je spořič obrazovky vypnutý"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:15
+#: ../light-locker-settings/light-locker-settings.py:536
+#: ../light-locker-settings/light-locker-settings.py:544
+msgid "Never"
+msgstr "Nikdy"
+
+#: ../light-locker-settings/light-locker-settings.py:42
+msgid "Xfce Power Manager"
+msgstr "Xfce správce napájení"
+
+#: ../light-locker-settings/light-locker-settings.py:375
+msgid "Screen Locker"
+msgstr ""
+
+#: ../light-locker-settings/light-locker-settings.py:376
+msgid "Launch screen locker program"
+msgstr ""
+
+#: ../light-locker-settings/light-locker-settings.py:394
+msgid "Screensaver"
+msgstr "Spořič obrazovky"
+
+#: ../light-locker-settings/light-locker-settings.py:395
+msgid "Set screensaver timeouts"
+msgstr "Nastavení časových limitů spořiče obrazovky"
+
+#: ../light-locker-settings/light-locker-settings.py:434
+#, python-format
+msgid "Your screensaver settings are managed by %s."
+msgstr "Nastavení spořiče obrazovky je řízeno %s."
+
+#: ../light-locker-settings/light-locker-settings.py:538
+#: ../light-locker-settings/light-locker-settings.py:554
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minuta"
+msgstr[1] "%d minuty"
+msgstr[2] "%d minut"
+
+#: ../light-locker-settings/light-locker-settings.py:556
+#, python-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d sekunda"
+msgstr[1] "%d sekundy"
+msgstr[2] "%d sekund"

@@ -1,0 +1,133 @@
+# Estonian translation for light-locker-settings
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the light-locker-settings package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: light-locker-settings\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-13 22:01-0500\n"
+"PO-Revision-Date: 2015-01-16 09:37+0000\n"
+"Last-Translator: Marko Silluste <Unknown>\n"
+"Language-Team: Estonian <et@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2015-01-17 07:13+0000\n"
+"X-Generator: Launchpad (build 17304)\n"
+
+#: ../light-locker-settings.desktop.in.h:1
+#: ../light-locker-settings/light-locker-settings.py:63
+msgid "Light Locker Settings"
+msgstr "Ekraanisäästu ja lukustussätted"
+
+#: ../light-locker-settings.desktop.in.h:2
+msgid "Configure locking your session"
+msgstr "Seadista ekraanisäästu ja lukustamist"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:1
+msgid ""
+"<b><big>Light Locker Settings</big></b>\n"
+"Configure locking your session"
+msgstr ""
+"<b><big>Ekraanisäästu ja lukustamisseadistused</big></b>\n"
+"Seadista oma ekraanisäästurežiimi"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:3
+msgid "Apply"
+msgstr "Kinnita"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:4
+msgid "Open"
+msgstr "Ava"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:5
+msgid "Blank screen after"
+msgstr "Tühi ekraan"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:6
+msgid "Switch off display after <i>(depends on hardware support)</i>"
+msgstr "Lülitage kuvar välja pärast <i>(sõltub riistvara toest )</i>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:7
+msgid "<b>Screensaver</b>"
+msgstr "<b>Ekraanisäästja</b>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:8
+msgid "Enable light-locker"
+msgstr "Luba ekraanilukustus"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:9
+msgid "Automatically lock the session"
+msgstr "Automaatselt lukustada sessiooni"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:10
+msgid "Delay locking after screensaver for"
+msgstr "Lukustamine pärast ekraanisäästu"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:11
+msgid "Lock on suspend"
+msgstr "Lukustamine seiskumisel"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:12
+msgid "<b>Locking</b>"
+msgstr "<b>Lukustamine</b>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:13
+msgid "When the screensaver is activated"
+msgstr "Kui ekraanisäästja on aktiveeritud"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:14
+msgid "When the screensaver is deactivated"
+msgstr "Kui ekraanisäästja on välja lülitatud"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:15
+#: ../light-locker-settings/light-locker-settings.py:536
+#: ../light-locker-settings/light-locker-settings.py:544
+msgid "Never"
+msgstr "Mitte kunagi"
+
+#: ../light-locker-settings/light-locker-settings.py:42
+msgid "Xfce Power Manager"
+msgstr "Xfce Power Manager"
+
+#: ../light-locker-settings/light-locker-settings.py:375
+msgid "Screen Locker"
+msgstr "Ekraanilukustus"
+
+#: ../light-locker-settings/light-locker-settings.py:376
+msgid "Launch screen locker program"
+msgstr "Ekraanilukustuse programmi käivitamine"
+
+#: ../light-locker-settings/light-locker-settings.py:394
+msgid "Screensaver"
+msgstr "Ekraanisäästja"
+
+#: ../light-locker-settings/light-locker-settings.py:395
+msgid "Set screensaver timeouts"
+msgstr "Ekraanisäästja aeg"
+
+#: ../light-locker-settings/light-locker-settings.py:434
+#, python-format
+msgid "Your screensaver settings are managed by %s."
+msgstr "SInu ekraanisäästja seadistused on %s poolt seadistatud."
+
+#: ../light-locker-settings/light-locker-settings.py:538
+#: ../light-locker-settings/light-locker-settings.py:554
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minut"
+msgstr[1] "%d minutit"
+
+#: ../light-locker-settings/light-locker-settings.py:556
+#, python-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d sekund"
+msgstr[1] "%d sekundit"
+
+#~ msgid "Lock automatically after screensaver"
+#~ msgstr "Automaatselt lukustamine pärast ekraanisäästu"

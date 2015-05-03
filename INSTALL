@@ -1,0 +1,8 @@
+1. Unpack the archive.
+
+2. To build light-locker-settings run 
+      ./configure
+      make
+
+3. To install light-locker-settings run
+      (sudo) make install

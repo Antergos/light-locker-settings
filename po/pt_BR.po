@@ -1,0 +1,133 @@
+# Brazilian Portuguese translation for light-locker-settings
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the light-locker-settings package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: light-locker-settings\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-13 22:01-0500\n"
+"PO-Revision-Date: 2014-09-27 19:22+0000\n"
+"Last-Translator: Leonardo Wizenfard de Oliveira <leooliveiraofs@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Launchpad-Export-Date: 2015-01-15 06:09+0000\n"
+"X-Generator: Launchpad (build 17303)\n"
+
+#: ../light-locker-settings.desktop.in.h:1
+#: ../light-locker-settings/light-locker-settings.py:63
+msgid "Light Locker Settings"
+msgstr "Configurações do Light Locker"
+
+#: ../light-locker-settings.desktop.in.h:2
+msgid "Configure locking your session"
+msgstr "Configurar o bloqueio de sessão"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:1
+msgid ""
+"<b><big>Light Locker Settings</big></b>\n"
+"Configure locking your session"
+msgstr ""
+"<b><big>Configurações do Light Locker</big></b>\n"
+"Configurar o bloqueio de sessão"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:3
+msgid "Apply"
+msgstr "Aplicar"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:4
+msgid "Open"
+msgstr "Abrir"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:5
+msgid "Blank screen after"
+msgstr "Apagar a tela após"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:6
+msgid "Switch off display after <i>(depends on hardware support)</i>"
+msgstr "Desligar a tela após <i>(depende do suporte de hardware)</i>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:7
+msgid "<b>Screensaver</b>"
+msgstr "<b>Proteção de tela</b>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:8
+msgid "Enable light-locker"
+msgstr "Habilitar o Light-Locker"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:9
+msgid "Automatically lock the session"
+msgstr "Bloquear automaticamente a sessão"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:10
+msgid "Delay locking after screensaver for"
+msgstr "Atrasar o bloqueio após o protetor de tela por"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:11
+msgid "Lock on suspend"
+msgstr "Bloquear ao suspender"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:12
+msgid "<b>Locking</b>"
+msgstr "<b>Bloqueio</b>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:13
+msgid "When the screensaver is activated"
+msgstr "Quando o protetor de tela é ativado"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:14
+msgid "When the screensaver is deactivated"
+msgstr "Quando o protetor de tela é desativado"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:15
+#: ../light-locker-settings/light-locker-settings.py:536
+#: ../light-locker-settings/light-locker-settings.py:544
+msgid "Never"
+msgstr "Nunca"
+
+#: ../light-locker-settings/light-locker-settings.py:42
+msgid "Xfce Power Manager"
+msgstr "Gerenciador de Energia do Xfce"
+
+#: ../light-locker-settings/light-locker-settings.py:375
+msgid "Screen Locker"
+msgstr ""
+
+#: ../light-locker-settings/light-locker-settings.py:376
+msgid "Launch screen locker program"
+msgstr ""
+
+#: ../light-locker-settings/light-locker-settings.py:394
+msgid "Screensaver"
+msgstr "Proteção de Tela"
+
+#: ../light-locker-settings/light-locker-settings.py:395
+msgid "Set screensaver timeouts"
+msgstr "Definir os tempos de espera do protetor de tela"
+
+#: ../light-locker-settings/light-locker-settings.py:434
+#, python-format
+msgid "Your screensaver settings are managed by %s."
+msgstr "As suas configurações de proteção de tela são gerenciadas pelo %s."
+
+#: ../light-locker-settings/light-locker-settings.py:538
+#: ../light-locker-settings/light-locker-settings.py:554
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minuto"
+msgstr[1] "%d minutos"
+
+#: ../light-locker-settings/light-locker-settings.py:556
+#, python-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d segundo"
+msgstr[1] "%d segundos"
+
+#~ msgid "Lock automatically after screensaver"
+#~ msgstr "Bloquear automaticamente após o protetor de tela"

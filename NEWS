@@ -1,0 +1,57 @@
+Light Locker Settings                                                      NEWS
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+19 Jan 2015, Light Locker Settings 1.5.0
+
+- Development release.
+  . Supports using light-locker 1.5.1 with GSettings enabled.
+  . Desktop files are now handled with GLib Keyfile.
+
+
+25 Sep 2014, Light Locker Settings 1.4.2
+
+- Bugfix release.
+  . logind-handle-lid-switch should match lock-screen-suspend-hibernate
+    for xfce4-power-manager 1.4.0 and newer.
+
+
+21 Sep 2014, Light Locker Settings 1.4.1
+
+- Bugfix release.
+  . Fix localizations not being used (LP: #1326864)
+  . Updated translations.
+
+
+17 Aug 2014, Light Locker Settings 1.4.0
+
+- Support the latest version of python-psutil
+- Do not manage screensaver settings for xfce4-power-manager 1.3+
+
+
+04 Apr 2014, Light Locker Settings 1.2.1
+
+- Support for external power management tools
+  . Added support for xfce4-session and xfce4-power-manager (fixes LP:1290737)
+
+
+24 Mar 2014, Light Locker Settings 1.2.0
+
+- light-locker settings:
+  . Add support for new features in light-locker 1.4.0
+    - Late Locking
+    - Optional locking on suspend
+
+
+12 Mar 2014, Light Locker Settings 1.0.1
+
+- General:
+  . Added translations support
+  . Improved XfceHeader theming
+  . Improved in(sensitive) setting to enable functionality as needed
+- light-locker settings:
+  . Apply changes to light-locker without restarting the session
+  . Fixed Light Locker timeout slider to start at 0 instead of -1
+
+
+18 Feb 2014, Light Locker Settings 1.0.0
+
+- Initial release.

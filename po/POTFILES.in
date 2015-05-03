@@ -1,0 +1,23 @@
+#   Light Locker Settings - simple configuration tool for light-locker
+#   Copyright (C) 2014 Thomas Molloy <beetyrootey@gmail.com>
+#
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License version 3, as published
+#   by the Free Software Foundation.
+#
+#   This program is distributed in the hope that it will be useful, but
+#   WITHOUT ANY WARRANTY; without even the implied warranties of
+#   MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#   PURPOSE.  See the GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License along
+#   with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# Desktop File
+light-locker-settings.desktop.in
+
+# Glade Files
+[type: gettext/glade]light-locker-settings/light-locker-settings.glade
+
+# Python Files
+light-locker-settings/light-locker-settings.py

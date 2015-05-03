@@ -1,0 +1,133 @@
+# Belarusian translation for light-locker-settings
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the light-locker-settings package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: light-locker-settings\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-13 22:01-0500\n"
+"PO-Revision-Date: 2014-10-11 05:53+0000\n"
+"Last-Translator: Usievaład Čorny <eratyk@tut.by>\n"
+"Language-Team: Belarusian <be@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Launchpad-Export-Date: 2015-01-15 06:08+0000\n"
+"X-Generator: Launchpad (build 17303)\n"
+
+#: ../light-locker-settings.desktop.in.h:1
+#: ../light-locker-settings/light-locker-settings.py:63
+msgid "Light Locker Settings"
+msgstr "Налады замыкання"
+
+#: ../light-locker-settings.desktop.in.h:2
+msgid "Configure locking your session"
+msgstr "Наладзіць замыканне Вашае сесіі"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:1
+msgid ""
+"<b><big>Light Locker Settings</big></b>\n"
+"Configure locking your session"
+msgstr ""
+"<b><big>Налады замыкання</big></b>\n"
+"Наладзіць замыканне Вашае сесіі"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:3
+msgid "Apply"
+msgstr "Ужыць"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:4
+msgid "Open"
+msgstr "Адчыніць"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:5
+msgid "Blank screen after"
+msgstr "Чорны экран праз"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:6
+msgid "Switch off display after <i>(depends on hardware support)</i>"
+msgstr "Выключаць экран праз <i>(залежыць ад падтрымкі абсталяваннем)</i>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:7
+msgid "<b>Screensaver</b>"
+msgstr "<b>Застаўка</b>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:8
+msgid "Enable light-locker"
+msgstr "Уключыць замыканне"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:9
+msgid "Automatically lock the session"
+msgstr "Аўтаматычна замыкаць сесію"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:10
+msgid "Delay locking after screensaver for"
+msgstr "Затрымаць замыканне пасля застаўкі на"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:11
+msgid "Lock on suspend"
+msgstr "Замыкаць падчас сну"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:12
+msgid "<b>Locking</b>"
+msgstr "<b>Замыканне</b>"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:13
+msgid "When the screensaver is activated"
+msgstr "Калі застаўка актыўная"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:14
+msgid "When the screensaver is deactivated"
+msgstr "Калі застаўка неактыўная"
+
+#: ../light-locker-settings/light-locker-settings.glade.h:15
+#: ../light-locker-settings/light-locker-settings.py:536
+#: ../light-locker-settings/light-locker-settings.py:544
+msgid "Never"
+msgstr "Ніколі"
+
+#: ../light-locker-settings/light-locker-settings.py:42
+msgid "Xfce Power Manager"
+msgstr "Кіраўнік сілкавання Xfce"
+
+#: ../light-locker-settings/light-locker-settings.py:375
+msgid "Screen Locker"
+msgstr ""
+
+#: ../light-locker-settings/light-locker-settings.py:376
+msgid "Launch screen locker program"
+msgstr ""
+
+#: ../light-locker-settings/light-locker-settings.py:394
+msgid "Screensaver"
+msgstr "Застаўка"
+
+#: ../light-locker-settings/light-locker-settings.py:395
+msgid "Set screensaver timeouts"
+msgstr "Прызначыць час застаўкі"
+
+#: ../light-locker-settings/light-locker-settings.py:434
+#, python-format
+msgid "Your screensaver settings are managed by %s."
+msgstr "Налады застаўкі пад кіраваннем %s."
+
+#: ../light-locker-settings/light-locker-settings.py:538
+#: ../light-locker-settings/light-locker-settings.py:554
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d хвіліну"
+msgstr[1] "%d хвіліны"
+msgstr[2] "%d хвілін"
+
+#: ../light-locker-settings/light-locker-settings.py:556
+#, python-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d секунду"
+msgstr[1] "%d секунды"
+msgstr[2] "%d секунд"
