@@ -450,13 +450,13 @@ class LightLockerSettings:
         if self.gsettings_available():
             settings = self.gsettings_get_settings()
             ll_exec_settings = self.ll_keyfile_get_settings()
-            if ll_exec_settings['lock-after-screensaver']:
+            if 'lock-after-screensaver' in ll_exec_settings and ll_exec_settings['lock-after-screensaver']:
                 settings['lock-after-screensaver'] = True
-            if ll_exec_settings['late-locking']:
+            if 'late-locking' in ll_exec_settings and ll_exec_settings['late-locking']:
                 settings['late-locking'] = True
-            if ll_exec_settings['lock-on-suspend']:
+            if 'lock-on-suspend' in ll_exec_settings and ll_exec_settings['lock-on-suspend']:
                 settings['lock-on-suspend'] = True
-            if ll_exec_settings['lock-time'] != 10:
+            if 'lock-time' in ll_exec_settings and ll_exec_settings['lock-time'] != 10:
                 settings['lock-time'] = ll_exec_settings['lock-time']
         else:
             settings = self.ll_keyfile_get_settings()
