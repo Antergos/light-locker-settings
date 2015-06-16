@@ -226,7 +226,7 @@ class LightLockerSettings:
                     # Return True if the process is found.
                     if self.get_process_name(p) == process_name:
                         return True
-            except:
+            except Exception:
                 pass
 
         return False
@@ -280,8 +280,7 @@ class LightLockerSettings:
         settings['lock-after-screensaver'] = lock_after_screensaver > 0
         settings['late-locking'] = late_locking
         settings['lock-on-suspend'] = lock_on_suspend
-        settings['lock-time'] = \
-            self.light_locker_time_down_scaler(lock_after_screensaver)
+        settings['lock-time'] = self.light_locker_time_down_scaler(lock_after_screensaver)
 
         return settings
 
@@ -318,9 +317,8 @@ class LightLockerSettings:
         value = ll_exec.replace("=", " ")
         splitargs = shlex.split(value)
 
-        parser = argparse.ArgumentParser(
-            description='Light Locker Settings')
-        parser.add_argument("--lock-after-screensaver")
+        parser = argparse.ArgumentParser(description='Light Locker Settings')
+        parser.add_argument("--lock-after-screensaver", action='store_true')
         parser.add_argument("--late-locking", action='store_true')
         parser.add_argument("--lock-on-suspend", action='store_true')
         (args, others) = parser.parse_known_args(splitargs)
@@ -387,8 +385,8 @@ class LightLockerSettings:
             "Comment": _("Launch screen locker program"),
             "Icon": "preferences-desktop-screensaver",
             "NoDisplay": "true",
-            "NotShownIn": "Gnome;Unity",
-            "Exec": ""
+            "NotShownIn": "Unity",
+            "Exec": "light-locker"
         }
 
         self.light_locker_keyfile = \
@@ -479,8 +477,7 @@ class LightLockerSettings:
         late_locking = settings['late-locking']
         lock_on_suspend = settings['lock-on-suspend']
         lock_time = settings['lock-time']
-        screen_blank_timeout, screen_off_timeout = \
-            self.get_screen_blank_timeout()
+        screen_blank_timeout, screen_off_timeout = self.get_screen_blank_timeout()
 
         # Apply the settings
         self.use_lightlocker.set_active(use_light_locker)
@@ -598,8 +595,7 @@ class LightLockerSettings:
                 late_locking = False
             if session_lock == 1:  # lock when screensaver is deactivated
                 late_locking = True
-            lock_delay = self.light_locker_time_up_scaler(
-                int(self.lock_delay.get_value()))
+            lock_delay = self.light_locker_time_up_scaler(int(self.lock_delay.get_value()))
 
         # Lock Enabled?
         lock_enabled = self.use_lightlocker.get_active()
@@ -608,8 +604,7 @@ class LightLockerSettings:
         lock_on_suspend = self.lock_on_suspend.get_active()
 
         # Get the screen-blank and screen-off timeout.
-        screenblank_timeout = \
-            int(self.screenblank_timeout.get_value()) * 60
+        screenblank_timeout = int(self.screenblank_timeout.get_value()) * 60
         screenoff_timeout = int(self.screenoff_timeout.get_value()) * 60
 
         settings = {
@@ -674,8 +669,7 @@ class LightLockerSettings:
         else:
             lock_on_suspend = "--no-lock-on-suspend"
 
-        lock_after_screensaver = "--lock-after-screensaver=%i" % \
-                                 lock_after_screensaver
+        lock_after_screensaver = "--lock-after-screensaver=%i" % lock_after_screensaver
 
         # Build the light-locker command.
         light_locker_exec = ""
@@ -698,8 +692,7 @@ class LightLockerSettings:
         screenoff_timeout = settings['screen-off-timeout']
 
         # Build the screen-blank/off command.
-        screensaver_exec = \
-            "xset s %i dpms %i 0 0" % (screenblank_timeout, screenoff_timeout)
+        screensaver_exec = "xset s %i dpms %i 0 0" % (screenblank_timeout, screenoff_timeout)
 
         # Execute the updated screensaver command.
         self.run_command(screensaver_exec)

@@ -83,8 +83,9 @@ class XfceSessionSync:
         may not exist. Create any missing properties."""
         channel = 'xfce4-session'
         for key, value in list(self.settings.items()):
+            val_type = type(value)
             if key not in list(current_settings.keys()):
-                xfconf_init_property(channel, key, type(value), value)
+                xfconf_init_property(channel, key, val_type, value)
 
     @staticmethod
     def _get_xfce4_session_settings():
