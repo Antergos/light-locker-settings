@@ -219,7 +219,7 @@ class LightLockerSettings:
     def check_running_process(self, process_name):
         """Return True if the specified process is active."""
         # Find the process...
-        for pid in psutil.get_pid_list():
+        for pid in psutil.pids():
             try:
                 p = psutil.Process(pid)
                 if self.get_process_username(p) == username:
@@ -234,7 +234,7 @@ class LightLockerSettings:
     def stop_light_locker(self):
         """Safely stop the light-locker process."""
         # Find the process...
-        for pid in psutil.get_pid_list():
+        for pid in psutil.pids():
             try:
                 p = psutil.Process(pid)
                 if self.get_process_username(p) == username:
