@@ -692,7 +692,7 @@ class LightLockerSettings:
         screenoff_timeout = settings['screen-off-timeout']
 
         # Build the screen-blank/off command.
-        screensaver_exec = "xset s %i dpms %i 0 0" % (screenblank_timeout, screenoff_timeout)
+        screensaver_exec = "xset s {0} dpms {1} {1} {1}".format(screenblank_timeout, screenoff_timeout)
 
         # Execute the updated screensaver command.
         self.run_command(screensaver_exec)
